@@ -1,0 +1,20 @@
+.button {
+  transition: transform 0.3s ease;
+  background-color: white;
+  margin-top:1rem;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: white;
+  transform: scale(1.04);
+}
+
+
+.red{
+  color: red;
+
+}
+.green{
+  color: green;
+}

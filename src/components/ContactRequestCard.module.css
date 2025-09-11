@@ -1,0 +1,78 @@
+.card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  margin: 10px;
+  border: 2px solid #e0e7ff;
+  width: 100%;
+  transition: border-color 0.2s;
+}
+
+.success {
+  border-color: #22c55e;
+}
+
+.warning {
+  border-color: #facc15;
+}
+
+.cardBody {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.text {
+  font-size: 1rem;
+  color: #222;
+  margin: 0;
+}
+
+.date {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.badge {
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+.bgSuccess {
+  background: #22c55e;
+  color: #fff;
+}
+
+.bgWarning {
+  background: #facc15;
+  color: #222;
+}
+
+.button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+  opacity: 0.95;
+}
+
+@media (max-width: 600px) {
+  .cardBody {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+  .card {
+    max-width: 100%;
+    border-radius: 10px;
+  }
+  .badge {
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem;
+  }
+}

@@ -1,0 +1,9 @@
+.cantainer{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.page{
+  display: flex;
+  justify-content: space-around;
+}
