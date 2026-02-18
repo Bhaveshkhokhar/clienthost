@@ -1,4 +1,4 @@
-import style from "./Dashboard.module.css";
+import style from "./DashBoard.module.css";
 import { ImCancelCircle } from "react-icons/im";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
