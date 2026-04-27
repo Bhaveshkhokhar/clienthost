@@ -10,13 +10,13 @@ const AddChef = () => {
   const { handleuserProfile } = useContext(authContext);
   const { addchef } = useContext(ChefsStore);
   const [previewImg, setPreviewImg] = useState(
-    `https://serverofchefbooking.onrender.com/defaultpic.jpg`
+    `https://chefwale.s3.us-west-2.amazonaws.com/public/defaultpic.jpg`,
   );
   const [selectedFile, setSelectedFile] = useState(null);
   const fileInputRef = useRef(null);
   const Number = useRef();
   const Password = useRef();
-  const Available=useRef();
+  const Available = useRef();
   const Name = useRef();
   const Price = useRef();
   const Type = useRef();
@@ -96,8 +96,7 @@ const AddChef = () => {
           } else if (res.status == 500) {
             alert(data.message);
             return;
-          }
-          else if (res.status == 409) {
+          } else if (res.status == 409) {
             alert(data.message);
             return;
           }

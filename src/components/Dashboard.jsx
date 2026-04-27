@@ -19,19 +19,31 @@ const Dashboard = () => {
         <div className={style.boxes}>
           <Link to="/chefs" className={style.link}>
             <div className={style.data}>
-              <img style={{width:"90px"}} src="https://serverofchefbooking.onrender.com/pic_chef.png" alt="Chef" />
+              <img
+                style={{ width: "90px" }}
+                src="https://chefwale.s3.us-west-2.amazonaws.com/public/pic_chef.png"
+                alt="Chef"
+              />
               <span>{noOfChef} Chefs</span>
             </div>
           </Link>
           <Link to="/bookings" className={style.link}>
             <div className={style.data}>
-              <img className={style.dataimg} src="https://serverofchefbooking.onrender.com/bookingpic.png" alt="Booking" />
+              <img
+                className={style.dataimg}
+                src="https://chefwale.s3.us-west-2.amazonaws.com/public/bookingpic.png"
+                alt="Booking"
+              />
               <span>{noOfBooking} Booking</span>
             </div>
           </Link>
           <Link to="/users" className={style.link}>
             <div className={style.data}>
-              <img className={style.dataimg} src="https://serverofchefbooking.onrender.com/defaultpic.png" alt="User" />
+              <img
+                className={style.dataimg}
+                src="https://chefwale.s3.us-west-2.amazonaws.com/public/defaultpic.png"
+                alt="User"
+              />
               <span>{noOfUser} User</span>
             </div>
           </Link>
@@ -71,7 +83,7 @@ const Dashboard = () => {
                         width="30px"
                         height="30px"
                         style={{ borderRadius: "30px", marginRight: "2px" }}
-                        src={`https://serverofchefbooking.onrender.com${booking.user.profileImage}`}
+                        src={`${booking.user.profileImage}`}
                         alt="User"
                       ></img>
                       <span>{booking.user.name}</span>
@@ -81,7 +93,7 @@ const Dashboard = () => {
                         width="30px"
                         height="30px"
                         style={{ borderRadius: "30px", marginRight: "2px" }}
-                        src={`https://serverofchefbooking.onrender.com${booking.chef.profileImage}`}
+                        src={`${booking.chef.profileImage}`}
                         alt="Chef"
                       ></img>
                       <span>{booking.chef.name}</span>
@@ -96,14 +108,24 @@ const Dashboard = () => {
                             color: "red",
                           }}
                           onClick={() => {
-                            cancelBooking(booking.id,booking.date,booking.time,booking.chef._id,booking.bookedAt);
+                            cancelBooking(
+                              booking.id,
+                              booking.date,
+                              booking.time,
+                              booking.chef._id,
+                              booking.bookedAt,
+                            );
                           }}
                         >
                           <ImCancelCircle />
                         </button>
                       )}
-                      {booking.status === "cancelled" && <span style={{color:"red"}}>Cancelled</span>}
-                      {booking.status === "Completed" && <span style={{color:"green"}}>Completed</span>}
+                      {booking.status === "cancelled" && (
+                        <span style={{ color: "red" }}>Cancelled</span>
+                      )}
+                      {booking.status === "Completed" && (
+                        <span style={{ color: "green" }}>Completed</span>
+                      )}
                     </td>
                   </tr>
                 ))}

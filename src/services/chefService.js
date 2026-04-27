@@ -1,8 +1,14 @@
 export const getTheChefs = async (signal) => {
   try {
-    const response = await fetch("https://serverofchefbooking.onrender.com/get-chefsHost", {signal,credentials:"include"});
+    const response = await fetch(
+      "https://serverofchefbooking.onrender.com/get-chefsHost",
+      {
+        signal,
+        credentials: "include",
+      },
+    );
     const data = await response.json();
-     if (!response.ok) {
+    if (!response.ok) {
       if (response.status === 401) {
         return { isLoggedIn: false };
       }
@@ -22,7 +28,7 @@ export const getTheChefs = async (signal) => {
 const mapServerChefsToLocalChefs = (serverChefs) => {
   return serverChefs.map((chef) => {
     return {
-      number:chef.mobile,
+      number: chef.mobile,
       id: chef._id,
       pic: chef.profileImage,
       name: chef.name,

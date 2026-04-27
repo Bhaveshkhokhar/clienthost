@@ -12,7 +12,7 @@ const UserContextProvider = ({ children }) => {
     const users = [...user];
     setusers(users);
   };
-  const handlechange = (id,status) => {
+  const handlechange = (id, status) => {
     fetch("https://serverofchefbooking.onrender.com/changeuserstatus", {
       credentials: "include",
       body: JSON.stringify({
@@ -62,8 +62,8 @@ const UserContextProvider = ({ children }) => {
         }
       })
       .catch((err) => {
-         console.error("Error during fetching request:", err);
-          alert("An error occurred during fetching request. Please try again.");
+        console.error("Error during fetching request:", err);
+        alert("An error occurred during fetching request. Please try again.");
       });
   };
   useEffect(() => {

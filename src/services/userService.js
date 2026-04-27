@@ -1,9 +1,12 @@
 const getUsers = async (signal) => {
   try {
-    const response = await fetch("https://serverofchefbooking.onrender.com/get-users", {
-      signal,
-      credentials: "include",
-    });
+    const response = await fetch(
+      "https://serverofchefbooking.onrender.com/get-users",
+      {
+        signal,
+        credentials: "include",
+      },
+    );
     const data = await response.json();
     if (!response.ok) {
       if (response.status === 401) {
@@ -25,13 +28,13 @@ const getUsers = async (signal) => {
 const mapServerUsersToLocalUsers = (users) => {
   return users.map((user) => {
     return {
-     id:user.id,
-     email:user.email,
-     gender:user.gender,
-     image:user.image,
-     mobile:user.mobile,
-     status:user.status,
-     name:user.name,
+      id: user.id,
+      email: user.email,
+      gender: user.gender,
+      image: user.image,
+      mobile: user.mobile,
+      status: user.status,
+      name: user.name,
     };
   });
 };

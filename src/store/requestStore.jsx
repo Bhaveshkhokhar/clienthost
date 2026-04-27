@@ -61,8 +61,8 @@ const RequestContextProvider = ({ children }) => {
         }
       })
       .catch((err) => {
-         console.error("Error during fetching request:", err);
-          alert("An error occurred during fetching request. Please try again.");
+        console.error("Error during fetching request:", err);
+        alert("An error occurred during fetching request. Please try again.");
       });
   };
   useEffect(() => {

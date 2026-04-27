@@ -1,9 +1,12 @@
 const getTheBookings = async (signal) => {
   try {
-    const response = await fetch("https://serverofchefbooking.onrender.com/get-bookings", {
-      signal,
-      credentials: "include",
-    });
+    const response = await fetch(
+      "https://serverofchefbooking.onrender.com/get-bookings",
+      {
+        signal,
+        credentials: "include",
+      },
+    );
     const data = await response.json();
     if (!response.ok) {
       if (response.status === 401) {
@@ -17,7 +20,7 @@ const getTheBookings = async (signal) => {
       }
       throw new Error("Failed to fetch authentication status");
     }
-     return mapServerbookingToLocalbooking(data.allbooking);
+    return mapServerbookingToLocalbooking(data.allbooking);
   } catch (err) {
     throw err;
   }
@@ -25,14 +28,14 @@ const getTheBookings = async (signal) => {
 const mapServerbookingToLocalbooking = (bookings) => {
   return bookings.map((booking) => {
     return {
-      bookedAt:booking.bookedAt,
-      id:booking.id,
-      user:booking.user,
-      chef:booking.chef,
-      date:booking.date,
-      time:booking.time,
-      fees:booking.fees,
-      status:booking.status,
+      bookedAt: booking.bookedAt,
+      id: booking.id,
+      user: booking.user,
+      chef: booking.chef,
+      date: booking.date,
+      time: booking.time,
+      fees: booking.fees,
+      status: booking.status,
     };
   });
 };

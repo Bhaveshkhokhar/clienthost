@@ -19,17 +19,20 @@ const ChefProvider = ({ children }) => {
     setchefs(Chefs);
   };
   const changeAvailability = (id, flag) => {
-    fetch("https://serverofchefbooking.onrender.com/hostchefchangeavailablity", {
-      credentials: "include",
-      method: "POST",
-      body: JSON.stringify({
-        id,
-        flag: !flag,
-      }),
-      headers: {
-        "Content-Type": "application/json",
+    fetch(
+      "https://serverofchefbooking.onrender.com/hostchefchangeavailablity",
+      {
+        credentials: "include",
+        method: "POST",
+        body: JSON.stringify({
+          id,
+          flag: !flag,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
       },
-    })
+    )
       .then(async (res) => {
         const data = await res.json();
         if (!res.ok) {
@@ -69,7 +72,7 @@ const ChefProvider = ({ children }) => {
       .catch((err) => {
         console.error("Error during updating chef availability:", err);
         alert(
-          "An error occurred during updating chef availability. Please try again."
+          "An error occurred during updating chef availability. Please try again.",
         );
       });
   };
@@ -85,7 +88,7 @@ const ChefProvider = ({ children }) => {
           console.log("Fetch aborted");
         } else {
           console.error("Auth check failed:", err.message);
-           handleuserProfile(false);
+          handleuserProfile(false);
         }
       });
     return () => {

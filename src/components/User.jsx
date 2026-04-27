@@ -27,7 +27,7 @@ const Users = () => {
                       width="30px"
                       height="30px"
                       style={{ borderRadius: "30px", marginRight: "2px" }}
-                      src={`https://serverofchefbooking.onrender.com${user.image}`}
+                      src={`${user.image}`}
                       alt="user"
                     ></img>
                     <span>{user.name}</span>
@@ -40,13 +40,13 @@ const Users = () => {
                       style={{
                         border: "none",
                         background: "white",
-                        color: user.status?"green":"red",
+                        color: user.status ? "green" : "red",
                       }}
                       onClick={() => {
                         handlechange(user.id, !user.status);
                       }}
                     >
-                      {user.status?<FaLockOpen />:<FaLock />}
+                      {user.status ? <FaLockOpen /> : <FaLock />}
                     </button>
                   </td>
                 </tr>

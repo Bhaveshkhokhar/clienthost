@@ -3,7 +3,7 @@ import styles from "./Header.module.css";
 import { useContext, useState } from "react";
 import { authContext } from "../store/authStore";
 const Header = () => {
-  const{handleuserProfile}=useContext(authContext);
+  const { handleuserProfile } = useContext(authContext);
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
   const handlesignout = (e) => {
@@ -48,7 +48,7 @@ const Header = () => {
             <img
               width="50px"
               height="50px"
-              src="https://serverofchefbooking.onrender.com/Chefwalelogo.png"
+              src="https://chefwale.s3.us-west-2.amazonaws.com/public/Chefwalelogo.png"
               alt="ChefWale"
             />
           </Link>
@@ -63,33 +63,33 @@ const Header = () => {
 
           <div className={`collapse navbar-collapse${menuOpen ? " show" : ""}`}>
             <center>
-            <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <Link to="/" className="nav-link px-3">
-                  <b>Dashboard</b>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/chefs" className="nav-link px-3">
-                 <b> Chefs</b>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/addchef" className="nav-link px-3">
-                 <b> Add Chef</b>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/bookings" className="nav-link px-3">
-                <b>  Booking</b>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/contact-requests" className="nav-link px-3">
-                 <b> Contact Requests</b>
-                </Link>
-              </li>
-            </ul>
+              <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
+                <li className="nav-item">
+                  <Link to="/" className="nav-link px-3">
+                    <b>Dashboard</b>
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link to="/chefs" className="nav-link px-3">
+                    <b> Chefs</b>
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link to="/addchef" className="nav-link px-3">
+                    <b> Add Chef</b>
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link to="/bookings" className="nav-link px-3">
+                    <b> Booking</b>
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link to="/contact-requests" className="nav-link px-3">
+                    <b> Contact Requests</b>
+                  </Link>
+                </li>
+              </ul>
             </center>
             {/* Hamburger menu (mobile): show below links */}
             {/* Hamburger menu (mobile): show below links, left-aligned */}
@@ -99,7 +99,7 @@ const Header = () => {
                   type="button"
                   className={`btn ${styles["button"]} w-75`}
                   onClick={(e) => {
-                   handlesignout(e);
+                    handlesignout(e);
                   }}
                 >
                   Sign out
@@ -113,7 +113,7 @@ const Header = () => {
                   type="button"
                   className={`btn ${styles["button"]}`}
                   onClick={(e) => {
-                   handlesignout(e);
+                    handlesignout(e);
                   }}
                 >
                   Sign out

@@ -39,7 +39,7 @@ const Booking = () => {
                       width="30px"
                       height="30px"
                       style={{ borderRadius: "30px", marginRight: "2px" }}
-                      src={`https://serverofchefbooking.onrender.com${booking.user.profileImage}`}
+                      src={`https://chefwale.s3.us-west-2.amazonaws.com/user${booking.user.profileImage}`}
                       alt="User"
                     ></img>
                     <span>{booking.user.name}</span>
@@ -49,7 +49,7 @@ const Booking = () => {
                       width="30px"
                       height="30px"
                       style={{ borderRadius: "30px", marginRight: "2px" }}
-                      src={`https://serverofchefbooking.onrender.com${booking.chef.profileImage}`}
+                      src={`${booking.chef.profileImage}`}
                       alt="Chef"
                     ></img>
                     <span>{booking.chef.name}</span>
@@ -64,7 +64,13 @@ const Booking = () => {
                           color: "red",
                         }}
                         onClick={() => {
-                          cancelBooking(booking.id,booking.date,booking.time,booking.chef._id,booking.bookedAt);
+                          cancelBooking(
+                            booking.id,
+                            booking.date,
+                            booking.time,
+                            booking.chef._id,
+                            booking.bookedAt,
+                          );
                         }}
                       >
                         <ImCancelCircle />

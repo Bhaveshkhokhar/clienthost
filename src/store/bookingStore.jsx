@@ -12,7 +12,7 @@ const BookingContextProvider = ({ children }) => {
     const bookingdata = [...data];
     setBooking(bookingdata);
   };
-  const cancelBooking = (id,date,time,chefid,bookedAt) => {
+  const cancelBooking = (id, date, time, chefid, bookedAt) => {
     fetch("https://serverofchefbooking.onrender.com/hostbookingcancel", {
       credentials: "include",
       method: "POST",
@@ -40,26 +40,25 @@ const BookingContextProvider = ({ children }) => {
               handleuserProfile(false);
             } else {
               const book = bookings.filter((booking) => {
-                 return booking.id !== id
+                return booking.id !== id;
               });
               setBooking(book);
             }
             return;
           }
-          if(res.status===400){
+          if (res.status === 400) {
             const book = bookings.map((booking) => {
-                 if(booking.id== id){
-                  return {
-                    ...booking,
-                    status:data.status,
-                  }
-                 }else{
-                  return booking
-                 }
-                
-              });
-              setBooking(book);
-              return;
+              if (booking.id == id) {
+                return {
+                  ...booking,
+                  status: data.status,
+                };
+              } else {
+                return booking;
+              }
+            });
+            setBooking(book);
+            return;
           }
           if (res.status === 500) {
             return;
