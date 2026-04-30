@@ -4,6 +4,7 @@ import style from "./AddChef.module.css";
 import { useState, useRef } from "react";
 import { ChefsStore } from "../store/ChefdataStore";
 import { authContext } from "../store/authStore";
+import { BACKEND_URL } from "../config";
 const AddChef = () => {
   const navigate = useNavigate();
   const [available, setAvailable] = useState(null);
@@ -49,7 +50,7 @@ const AddChef = () => {
     formData.append("Certifications", Certifications.current.value);
     formData.append("Experience", Experience.current.value);
     formData.append("image", selectedFile);
-    fetch("https://serverofchefbooking.onrender.com/addChefData", {
+    fetch(`${BACKEND_URL}/addChefData`, {
       method: "POST",
       body: formData,
       credentials: "include",

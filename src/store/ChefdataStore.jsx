@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import { getTheChefs } from "../services/chefService";
 import { useContext } from "react";
 import { authContext } from "./authStore";
+import { BACKEND_URL } from "../config";
 export const ChefsStore = createContext({
   chefs: [],
   changeAvailability: () => {},
@@ -19,20 +20,17 @@ const ChefProvider = ({ children }) => {
     setchefs(Chefs);
   };
   const changeAvailability = (id, flag) => {
-    fetch(
-      "https://serverofchefbooking.onrender.com/hostchefchangeavailablity",
-      {
-        credentials: "include",
-        method: "POST",
-        body: JSON.stringify({
-          id,
-          flag: !flag,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
+    fetch(`${BACKEND_URL}/hostchefchangeavailablity`, {
+      credentials: "include",
+      method: "POST",
+      body: JSON.stringify({
+        id,
+        flag: !flag,
+      }),
+      headers: {
+        "Content-Type": "application/json",
       },
-    )
+    })
       .then(async (res) => {
         const data = await res.json();
         if (!res.ok) {

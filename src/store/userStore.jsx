@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import getUsers from "../services/userService";
 import { authContext } from "./authStore";
+import { BACKEND_URL } from "../config";
 export const userContext = createContext({
   users: [],
   handlechange: () => {},
@@ -13,7 +14,7 @@ const UserContextProvider = ({ children }) => {
     setusers(users);
   };
   const handlechange = (id, status) => {
-    fetch("https://serverofchefbooking.onrender.com/changeuserstatus", {
+    fetch(`${BACKEND_URL}/changeuserstatus`, {
       credentials: "include",
       body: JSON.stringify({
         id,
