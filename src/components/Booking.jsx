@@ -2,6 +2,7 @@ import { useContext } from "react";
 import style from "./Booking.module.css";
 import { ImCancelCircle } from "react-icons/im";
 import { bookingContext } from "../store/bookingStore";
+import { S3_BASE_URL } from "../config";
 const Booking = () => {
   const { bookings, cancelBooking } = useContext(bookingContext);
   const data = bookings.sort((a, b) => new Date(b.date) - new Date(a.date));
@@ -39,7 +40,7 @@ const Booking = () => {
                       width="30px"
                       height="30px"
                       style={{ borderRadius: "30px", marginRight: "2px" }}
-                      src={`https://chefwale.s3.us-west-2.amazonaws.com/user${booking.user.profileImage}`}
+                      src={`${S3_BASE_URL}/user${booking.user.profileImage}`}
                       alt="User"
                     ></img>
                     <span>{booking.user.name}</span>

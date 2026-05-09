@@ -4,14 +4,14 @@ import style from "./AddChef.module.css";
 import { useState, useRef } from "react";
 import { ChefsStore } from "../store/ChefdataStore";
 import { authContext } from "../store/authStore";
-import { BACKEND_URL } from "../config";
+import { BACKEND_URL, S3_BASE_URL } from "../config";
 const AddChef = () => {
   const navigate = useNavigate();
   const [available, setAvailable] = useState(null);
   const { handleuserProfile } = useContext(authContext);
   const { addchef } = useContext(ChefsStore);
   const [previewImg, setPreviewImg] = useState(
-    `https://chefwale.s3.us-west-2.amazonaws.com/public/defaultpic.jpg`,
+    `${S3_BASE_URL}/public/defaultpic.jpg`,
   );
   const [selectedFile, setSelectedFile] = useState(null);
   const fileInputRef = useRef(null);

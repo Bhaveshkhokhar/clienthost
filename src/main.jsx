@@ -14,6 +14,7 @@ import Chefs from "./components/Chefs.jsx";
 import AddChef from "./components/AddChef.jsx";
 import Users from "./components/User.jsx";
 import ContactRequest from "./components/Contactrequests.jsx";
+import ChefAccountRequest from "./components/ChefAccountRequest.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -27,6 +28,7 @@ const router = createBrowserRouter([
           {path:"/addchef",element:<AddChef/>},
           {path:"/users",element:<Users/>},
           {path:"/contact-requests",element:<ContactRequest/>},
+          {path:"/chef-account-requests",element:<ChefAccountRequest/>},
         ],
       },
       { path: "/login", element: <Login /> },

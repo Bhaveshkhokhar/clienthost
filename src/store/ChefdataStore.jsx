@@ -7,10 +7,13 @@ export const ChefsStore = createContext({
   chefs: [],
   changeAvailability: () => {},
   addchef: () => {},
+  chefAccountRequests:[],
+  setChefAccountRequests:()=>{},
 });
 const ChefProvider = ({ children }) => {
   const { handleuserProfile } = useContext(authContext);
   const [chefs, setchefs] = useState([]);
+  const[chefAccountRequests,setChefAccountRequests]=useState([]);
   const addchef = (data) => {
     const updatechefs = [...chefs, data];
     setchefs(updatechefs);
@@ -94,7 +97,7 @@ const ChefProvider = ({ children }) => {
     };
   }, []);
   return (
-    <ChefsStore.Provider value={{ chefs, changeAvailability, addchef }}>
+    <ChefsStore.Provider value={{ chefs, changeAvailability, addchef,chefAccountRequests,setChefAccountRequests }}>
       {children}
     </ChefsStore.Provider>
   );

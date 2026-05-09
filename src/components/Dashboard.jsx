@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { bookingContext } from "../store/bookingStore";
 import { ChefsStore } from "../store/ChefdataStore";
 import { userContext } from "../store/userStore";
+import { S3_BASE_URL } from "../config";
 const Dashboard = () => {
   const { chefs } = useContext(ChefsStore);
   const { users } = useContext(userContext);
@@ -21,7 +22,7 @@ const Dashboard = () => {
             <div className={style.data}>
               <img
                 style={{ width: "90px" }}
-                src="https://chefwale.s3.us-west-2.amazonaws.com/public/pic_chef.png"
+                src={`${S3_BASE_URL}/public/pic_chef.png`}
                 alt="Chef"
               />
               <span>{noOfChef} Chefs</span>
@@ -31,7 +32,7 @@ const Dashboard = () => {
             <div className={style.data}>
               <img
                 className={style.dataimg}
-                src="https://chefwale.s3.us-west-2.amazonaws.com/public/bookingpic.png"
+                src={`${S3_BASE_URL}/public/bookingpic.png`}
                 alt="Booking"
               />
               <span>{noOfBooking} Booking</span>
@@ -41,7 +42,7 @@ const Dashboard = () => {
             <div className={style.data}>
               <img
                 className={style.dataimg}
-                src="https://chefwale.s3.us-west-2.amazonaws.com/public/defaultpic.png"
+                src={`${S3_BASE_URL}/public/defaultpic.png`}
                 alt="User"
               />
               <span>{noOfUser} User</span>
